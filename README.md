@@ -12,13 +12,13 @@ a live BGP server peer FOR any country  实时获取全球BGP 路由软件<br>
 ##### BGP 通信端口为TCP 179 请注意开发防火墙
 ##### *仅用于学习目的*
 
-Dockerfile
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Dockerfile
+```bash
 # 先克隆源码，编译好可运行文件，再copy运行需要的文件到app目录
 # 可带人参数 TYPE，默认为‘CN’
 # 最简linux环境下运行
 # 支持默认值（${VAR:-default} 语法）
-```bash
+
 FROM golang:alpine AS builder
 
 RUN apk add --no-cache git
