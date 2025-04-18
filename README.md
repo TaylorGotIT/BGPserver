@@ -18,7 +18,7 @@ Dockerfile
 # 可带人参数 TYPE，默认为‘CN’
 # 最简linux环境下运行
 # 支持默认值（${VAR:-default} 语法）
-
+```bash
 FROM golang:alpine AS builder
 
 RUN apk add --no-cache git
@@ -36,8 +36,10 @@ COPY --from=builder /go/BGPserver/BGP/ChinaBGPZip.gob /app/
 WORKDIR /app
 
 ENTRYPOINT ["/bin/sh", "-c", "exec ./bgp -c config.ini -l \"${ROUTE_TYPE:-CN}\""]
+```
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+```bash
 构建Docker镜像
 sudo docker build -t bgpserver .
 
@@ -84,3 +86,4 @@ $ show container image
 REPOSITORY                                    TAG      IMAGE ID      CREATED         SIZE
 docker.io/taylorgogo/bgpserver                latest   f909e1837bf7  29 minutes ago  38.7 MB
 
+```
